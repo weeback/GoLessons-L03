@@ -19,3 +19,10 @@
 
 # Go workspace file
 go.work
+
+# IDE generate directories
+.idea/
+.vscode/
+
+# Output binary file built with `go build -o bin/myapp`
+bin/
