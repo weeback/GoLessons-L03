@@ -58,6 +58,14 @@ go mod tidy;\
   -trimpath cmd/http-server/*.go
 ```
 
+* Build app gorilla-server
+```shell
+go mod tidy;\
+  go build -ldflags "-s -w -extldflags '-static' -X myapp.Version=beta-1.0.0" \
+  -o bin/myapp \
+  -trimpath cmd/gorilla-server/*.go
+```
+
 * Run build
 ```shell
 chmod +x bin/myapp;\

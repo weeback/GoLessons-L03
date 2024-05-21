@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"myapp"
-	"myapp/api"
+	"myapp/api/http-server"
 	"net/http"
 	"os"
 )
@@ -17,7 +17,7 @@ func main() {
 		"\tVersion: %s\n------------------------------------\n", myapp.Version)
 
 	// Create a new handler
-	api.New().Register()
+	http_server.New().Register()
 
 	// Print the bind address
 	fmt.Printf("Server listening on: %s ...\n", bindAddr)
