@@ -1,4 +1,4 @@
-# Lession 03
+# Lesson 03
 
 Đặt tên sau
 
@@ -28,11 +28,11 @@ mkdir -p cmd/v1; echo "package main
   
 import (
   \"fmt\"
-    \"myapp\"
+  \"myapp\"
 )
 
 var (
-  bindAddr = "0.0.0.0:8080"
+  bindAddr = \"0.0.0.0:8080\"
 )
 
 func main() {
@@ -42,7 +42,7 @@ func main() {
 " >> cmd/v1/main.go
 ```
   
-* Build app
+* Build app v1
 ```shell
 go mod tidy;\
   go build -ldflags "-s -w -extldflags '-static' -X myapp.Version=beta-1.0.0" \
@@ -50,7 +50,16 @@ go mod tidy;\
   -trimpath cmd/v1/*.go
 ```
 
+* Build app http-server
+```shell
+go mod tidy;\
+  go build -ldflags "-s -w -extldflags '-static' -X myapp.Version=beta-1.0.0" \
+  -o bin/myapp \
+  -trimpath cmd/http-server/*.go
+```
+
 * Run build
 ```shell
-./bin/myapp
+chmod +x bin/myapp;\
+  exec ./bin/myapp
 ```
