@@ -66,6 +66,14 @@ go mod tidy;\
   -trimpath cmd/gorilla-server/*.go
 ```
 
+* Build app gin-server
+```shell
+go mod tidy;\
+  go build -ldflags "-s -w -extldflags '-static' -X myapp.Version=beta-1.0.0" \
+  -o bin/myapp \
+  -trimpath cmd/gin-server/*.go
+```
+
 * Run build
 ```shell
 chmod +x bin/myapp;\

@@ -52,11 +52,16 @@ func main() {
 		fmt.Println("Error walking routes: ", err)
 	}
 
+	// Create the server configuration
+	serv := http.Server{
+		Addr:    bindAddr,
+		Handler: r,
+	}
 	// Print the bind address
 	fmt.Printf("Server listening on: %s ...\n", bindAddr)
 
 	// Start the server
-	if err := http.ListenAndServe(bindAddr, r); err != nil {
+	if err := serv.ListenAndServe(); err != nil {
 		fmt.Printf("Error starting server: %v\n", err)
 		return
 	}
